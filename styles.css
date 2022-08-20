@@ -1,0 +1,30 @@
+.mestre {
+    display: flex;
+}
+
+#ftitulos {
+   display: flex;
+    margin-left: 2%;
+    margin-top: 3%;
+}
+
+tr:hover {
+    cursor: pointer;
+}
+
+#tbtitulos {
+    
+    font: 14px Verdana;
+}
+
+#dGridTitulos {
+margin-left: 2%;
+}
+
+
+input[type=button] {
+    
+    width: 70px;
+    height: 38px;
+}
+

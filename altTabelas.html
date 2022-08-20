@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Banco Virtual</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script type="text/javascript" src="scripts.js"></script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="lh-100">
+            <h6 class="mb-0 text-white lh-100">Planilha Financeira</h6>
+            <small class="text-white">Simulação de desconto juros simples</small>
+        </div>
+    </nav>
+<div class="mestre">
+    <div id="ftitulos">
+        <form>
+            <div class="form-group">
+                <label for="txtCodigo">Código</label>
+                <input type="text" class="form-control" id="txtCodigo" aria-describedby="emailHelp" placeholder="Código" readonly>
+            </div>
+            <div class="form-group">
+                <label for="valor">valor</label>
+                <input type="text" class="form-control" id="valor" aria-describedby="emailHelp" placeholder="valor">
+            </div>
+            <div class="form-group">
+                <label for="dtinicio">data inicial</label>
+                <input type="date" class="form-control" id="dtinicio" placeholder="Data Inicial">
+            </div>
+            <label for="validationCustomUsername">data vencimento</label>
+            <input type="date" class="form-control" id="dtvcto" placeholder="Data Vencimento">
+            <div class="form-group">
+                <label for="valor">Taxa Juros a.m</label>
+                <input type="text" class="form-control" id="txjuros" aria-describedby="emailHelp" placeholder="Tx Juros">
+            </div>
+            <label for="validationCustomUsername">bloqueio</label>
+            <input type="text" class="form-control" id="bloqueio" placeholder="bloqueio">
+            <br/>
+            <button type="button" class="btn btn-dark btn-lg"
+                    onclick="cadTitulo(valor.value, dtinicio.value, dtvcto.value, txjuros.value, bloqueio.value)">
+                Inserir
+            </button>
+            <button type="button" class="btn btn-dark btn-lg"
+                    onclick="alTitulo(valor.value, dtinicio.value, dtvcto.value, txjuros.value, bloqueio.value)">
+                Salvar
+            </button>
+            <button type="button" class="btn btn-dark btn-lg"
+                    onclick="delRegistro()">
+                Excluir
+            </button>
+        </form>
+    </div>
+
+    <br />
+    <br />
+
+    <div id="dGridTitulos">
+
+        <table id="tbtitulos" class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Código</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Data Inicial</th>
+                    <th scope="col">Data Vencimento</th>
+                    <th scope="col">Dias</th>
+                    <th scope="col">Juros</th>
+                    <th scope="col">Valor Liquido</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+</body>
+
+</html>
