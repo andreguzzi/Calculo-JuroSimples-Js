@@ -23,25 +23,25 @@
     <div id="ftitulos">
         <form>
             <div class="form-group">
+                <div class="form-group">
+                    <label for="dtinicio">Data Operação</label>
+                    <input type="date" class="form-control" id="dtinicio" placeholder="Data Operação">
+                </div>
+                <div class="form-group">
+                    <label for="valor">Taxa Juros a.m</label>
+                    <input type="text" class="form-control" id="txjuros" aria-describedby="emailHelp" placeholder="Tx Juros">
+                </div>
+                <label for="validationCustomUsername">Bloqueio</label>
+                <input type="text" class="form-control" id="bloqueio" placeholder="bloqueio"><br/>
                 <label for="txtCodigo">Código</label>
                 <input type="text" class="form-control" id="txtCodigo" aria-describedby="emailHelp" placeholder="Código" readonly>
             </div>
             <div class="form-group">
-                <label for="valor">valor</label>
+                <label for="valor">Valor R$</label>
                 <input type="text" class="form-control" id="valor" aria-describedby="emailHelp" placeholder="valor">
             </div>
-            <div class="form-group">
-                <label for="dtinicio">data inicial</label>
-                <input type="date" class="form-control" id="dtinicio" placeholder="Data Inicial">
-            </div>
-            <label for="validationCustomUsername">data vencimento</label>
+            <label for="validationCustomUsername">Data Vencimento</label>
             <input type="date" class="form-control" id="dtvcto" placeholder="Data Vencimento">
-            <div class="form-group">
-                <label for="valor">Taxa Juros a.m</label>
-                <input type="text" class="form-control" id="txjuros" aria-describedby="emailHelp" placeholder="Tx Juros">
-            </div>
-            <label for="validationCustomUsername">bloqueio</label>
-            <input type="text" class="form-control" id="bloqueio" placeholder="bloqueio">
             <br/>
             <button type="button" class="btn btn-dark btn-lg"
                     onclick="cadTitulo(valor.value, dtinicio.value, dtvcto.value, txjuros.value, bloqueio.value)">

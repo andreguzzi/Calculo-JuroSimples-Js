@@ -46,14 +46,16 @@ function preencheCamposForm() {
 }
 
 function calculojuros() {
-  var valorLiquido = valor - juros;
+  var valorLiquido = "valor" - "juros";
+  return valorLiquido;
 }
 
 function calculaDias() {
-  var d1 = dtinicio;
-  var d2 = dtvcto;
+  var d1 = "dtinicio";
+  var d2 = "dtvcto";
   var diffInMs = new Date(d2) - new Date(d1);
   var diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+  return diffInDays;
 }
 
 function delRegistro() {
