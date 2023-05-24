@@ -5,9 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Banco Virtual</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script type="text/javascript" src="scripts.js"></script>
 
 </head>
@@ -23,32 +22,32 @@
     <div id="ftitulos">
         <form>
             <div class="form-group">
-                <div class="form-group">
-                    <label for="dtinicio">Data Operação</label>
-                    <input type="date" class="form-control" id="dtinicio" placeholder="Data Operação">
-                </div>
-                <div class="form-group">
-                    <label for="valor">Taxa Juros a.m</label>
-                    <input type="text" class="form-control" id="txjuros" aria-describedby="emailHelp" placeholder="Tx Juros">
-                </div>
-                <label for="validationCustomUsername">Bloqueio</label>
-                <input type="text" class="form-control" id="bloqueio" placeholder="bloqueio"><br/>
                 <label for="txtCodigo">Código</label>
-                <input type="text" class="form-control" id="txtCodigo" aria-describedby="emailHelp" placeholder="Código" readonly>
+                <input type="text" class="form-control" id="txtCodigo" placeholder="Código" readonly>
+                <div class="form-group">
+                    <label for="dataInicio">Data Operação</label>
+                    <input type="date" class="form-control" id="dataInicio" placeholder="Data Operação">
+                </div>
+                <div class="form-group">
+                    <label for="taxaJuros">Taxa Juros a.m</label>
+                    <input type="text" class="form-control" id="taxaJuros" placeholder="Tx Juros">
+                </div>
+                <label for="bloqueio">Bloqueio</label>
+                <input type="text" class="form-control" id="bloqueio" placeholder="bloqueio">
             </div>
             <div class="form-group">
                 <label for="valor">Valor R$</label>
-                <input type="text" class="form-control" id="valor" aria-describedby="emailHelp" placeholder="valor">
+                <input type="text" class="form-control" id="valor" placeholder="valor">
             </div>
-            <label for="validationCustomUsername">Data Vencimento</label>
-            <input type="date" class="form-control" id="dtvcto" placeholder="Data Vencimento">
+            <label for="dataVencimento">Data Vencimento</label>
+            <input type="date" class="form-control" id="dataVencimento" placeholder="Data Vencimento">
             <br/>
             <button type="button" class="btn btn-dark btn-lg"
-                    onclick="cadTitulo(valor.value, dtinicio.value, dtvcto.value, txjuros.value, bloqueio.value)">
+                    onclick="cadTitulo(valor.value, dataInicio.value, dataVencimento.value, taxaJuros.value, bloqueio.value)">
                 Inserir
             </button>
             <button type="button" class="btn btn-dark btn-lg"
-                    onclick="alTitulo(valor.value, dtinicio.value, dtvcto.value, txjuros.value, bloqueio.value)">
+                    onclick="alTitulo(valor.value, dataInicio.value, dataVencimento.value, taxaJuros.value, bloqueio.value)">
                 Salvar
             </button>
             <button type="button" class="btn btn-dark btn-lg"
@@ -63,20 +62,37 @@
 
     <div id="dGridTitulos">
 
-        <table id="tbtitulos" class="table table-striped">
+        <table id="tbtitulos" class="table table-striped table-dark">
             <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Código</th>
-                    <th scope="col">Valor</th>
-                    <th scope="col">Data Inicial</th>
-                    <th scope="col">Data Vencimento</th>
-                    <th scope="col">Dias</th>
-                    <th scope="col">Juros</th>
-                    <th scope="col">Valor Liquido</th>
-                </tr>
+              <tr>
+                <th>Código</th>
+                <th>Valor</th>
+                <th>Data Início</th>
+                <th>Data Vencimento</th>
+                <th>Taxa de Juros</th>
+                <th>Bloqueio</th>
+                <th>Diferença (Dias)</th>
+                <th>Juros</th>
+                <th>Valor Líquido</th>
+              </tr>
             </thead>
-        </table>
-    </div>
+            <tbody>
+              <!-- Aqui você pode adicionar dinamicamente as linhas da tabela usando JavaScript -->
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="7" class="text-right"><strong>Total Valor:</strong></td>
+                <td id="totalValor" class="text-right"></td>
+                <td colspan="2"></td> <!-- Colunas vazias para alinhar corretamente -->
+              </tr>
+              <tr>
+                <td colspan="7" class="text-right"><strong>Total Juros:</strong></td>
+                <td id="totalJuros" class="text-right"></td>
+                <td colspan="2"></td> <!-- Colunas vazias para alinhar corretamente -->
+              </tr>
+            </tfoot>
+          </table>
+        </div>
 </div>
 </body>
 
