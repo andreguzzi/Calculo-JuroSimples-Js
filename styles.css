@@ -1,5 +1,6 @@
 .mestre {
     display: flex;
+    background-color: skyblue;
 }
 
 #ftitulos {
@@ -23,8 +24,15 @@ margin-left: 2%;
 
 
 input[type=button] {
-    
+
     width: 70px;
     height: 38px;
 }
+
+.footer {
+    margin-top: 3px;
+    padding: 1px;
+    text-align: center;
+  }
+  
 

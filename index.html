@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Banco Virtual</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="lh-100">
+            <h6 class="mb-0 text-white lh-100">Planilha Financeira</h6>
+            <small class="text-white">Simulação de desconto juros simples</small>
+        </div>
+    </nav>
+
+    <div id="ftitulos" class="form-row">
+        <form>
+            <div class="form-group col-md-2">
+                <label for="txtCodigo">Código</label>
+                <input type="text" class="form-control" id="txtCodigo" placeholder="Código" readonly>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="dataInicio">Data Operação</label>
+                <input type="date" class="form-control" id="dataInicio" placeholder="Data Operação">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="taxaJuros">Taxa Juros a.m</label>
+                <input type="text" class="form-control" id="taxaJuros" placeholder="Tx Juros">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="bloqueio">Bloqueio</label>
+                <input type="text" class="form-control" id="bloqueio" placeholder="Bloqueio">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="valor">Valor R$</label>
+                <input type="text" class="form-control" id="valor" placeholder="Valor">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="dataVencimento">Data Vencimento</label>
+                <input type="date" class="form-control" id="dataVencimento" placeholder="Data Vencimento">
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-dark btn-lg" onclick="cadTitulo()">Inserir</button>
+                <button type="button" class="btn btn-dark btn-lg" onclick="alTitulo()">Salvar</button>
+                <button type="button" class="btn btn-dark btn-lg" onclick="delRegistro()">Excluir</button>
+            </div>
+        </form>
+    </div>
+
+    <br />
+    <br />
+
+    <div id="dGridTitulos">
+        <table id="tbtitulos" class="table table-striped table-dark">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Código</th>
+                    <th>Valor</th>
+                    <th>Data Início</th>
+                    <th>Data Vencimento</th>
+                    <th>Taxa de Juros</th>
+                    <th>Bloqueio</th>
+                    <th>Diferença (Dias)</th>
+                    <th>Juros</th>
+                    <th>Valor Líquido</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aqui você pode adicionar dinamicamente as linhas da tabela usando JavaScript -->
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2" class="text-right"><strong>Total Valor:</strong></td>
+                    <td id="totalValor" class="text-right"></td>
+                    <td></td> <!-- Espaço vazio -->
+                    <td colspan="3" class="text-right"><strong>Total Juros:</strong></td>
+                    <td id="totalJuros" class="text-right"></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <script type="text/javascript" src="scripts.js"></script>
+    
+</body>
+
+</html>
+
