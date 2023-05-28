@@ -33,11 +33,10 @@ function cadTitulo(valor, dataInicio, dataVencimento, taxaJuros, bloqueio) {
   celltaxaJuros.innerHTML = taxaJuros + '%';
   cellBloqueio.innerHTML = bloqueio;
   celldifDias.innerHTML = difDias;
-
-
   cellJuros.textContent = 'R$ ' + parseFloat(juros).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   cellValorLiquido.textContent = 'R$ ' + parseFloat(valorTotal).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
+  preencheCamposForm();
   atualizarTotais();
 }
 
@@ -60,14 +59,44 @@ function alTitulo(valor, dataInicio, dataVencimento, taxaJuros, bloqueio) {
   atualizarTotais();
 }
 
+
 function delRegistro() {
-  var index;
+  var codigo = document.getElementById("txtCodigo").value;
+  var tabela = document.getElementById("tbtitulos");
+  var linhas = tabela.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
 
-  if (index >= 0 && index < titulos.rows.length) {
-    titulos.deleteRow(index);
+  for (var i = 0; i < linhas.length; i++) {
+    var linhaCodigo = linhas[i].cells[0].innerText;
 
-    atualizarTotais();
+    if (linhaCodigo === codigo) {
+      linhas[i].remove();
+      break;
+    }
   }
+
+  atualizarTotais();
+}
+
+function preencheCamposForm() {
+  var titulos = document.getElementById("tbtitulos");
+
+  for (var i = 0; i < titulos.rows.length; i++) {
+    titulos.rows[i].onclick = function () {
+      var index = this.rowIndex;
+      document.getElementById("txtCodigo").value = titulos.rows[index].cells[0].innerText;
+      document.getElementById("valor").value = titulos.rows[index].cells[1].innerText;
+      document.getElementById("dataInicio").value = formatarData(titulos.rows[index].cells[2].innerText);
+      document.getElementById("dataVencimento").value = formatarData(titulos.rows[index].cells[3].innerText);
+      document.getElementById("taxaJuros").value = titulos.rows[index].cells[4].innerText;
+      document.getElementById("bloqueio").value = titulos.rows[index].cells[5].innerText;
+    };
+  }
+}
+
+function formatarData(data) {
+  var partesData = data.split("/");
+  var dataFormatada = partesData[2] + "-" + partesData[1] + "-" + partesData[0];
+  return dataFormatada;
 }
 
 function calcularDiferenca(dataInicio, dataVencimento, bloqueio) {
@@ -124,6 +153,14 @@ function atualizarTotais() {
   document.getElementById("totalValorLiquido").innerText = totalValorLiquidoFormatado;
 }
 
+function limparFormulario() {
+  document.getElementById("txtCodigo").value = "";
+  document.getElementById("dataInicio").value = "";
+  document.getElementById("taxaJuros").value = "";
+  document.getElementById("bloqueio").value = "";
+  document.getElementById("valor").value = "";
+  document.getElementById("dataVencimento").value = "";
+}
 
 function travarCampo(campo, checkbox) {
   var inputCampo = document.getElementById(campo);

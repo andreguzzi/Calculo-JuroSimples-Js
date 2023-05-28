@@ -9,7 +9,7 @@
         <link rel="stylesheet"
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="styles.css">
-        <script type="text/javascript" src="scripts.js"></script>
+        
 
     </head>
 
@@ -56,18 +56,21 @@
                     <input type="date" class="form-control" id="dataVencimento"
                         placeholder="Data Vencimento">
                     <br />
-                    <button type="button" class="btn btn-dark btn-lg"
+                    <button type="button" class="btn btn-dark btn"
                         onclick="cadTitulo(valor.value, dataInicio.value, dataVencimento.value, taxaJuros.value, bloqueio.value)">
                         Inserir
                     </button>
-                    <button type="button" class="btn btn-dark btn-lg"
+                    <button type="button" class="btn btn-dark btn"
                         onclick="alTitulo(valor.value, dataInicio.value, dataVencimento.value, taxaJuros.value, bloqueio.value)">
                         Salvar
                     </button>
-                    <button type="button" class="btn btn-dark btn-lg"
+                    <br><br>
+                    <button type="button" class="btn btn-dark btn"
                         onclick="delRegistro()">
                         Excluir
                     </button>
+                    <button type="button" class="btn btn-dark btn" 
+                        onclick="limparFormulario()">Limpar</button>
                 </form>
             </div>
 
@@ -105,6 +108,7 @@
 
             </div>
         </div>
+        <script type="text/javascript" src="scripts.js"></script>
     </body>
     <footer class="footer bg-dark">
         <div class="container ">
