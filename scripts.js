@@ -40,25 +40,60 @@ function cadTitulo(valor, dataInicio, dataVencimento, taxaJuros, bloqueio) {
   atualizarTotais();
 }
 
+/*
+  function alTitulo() {
+    var codigo = document.getElementById("txtCodigo").value;
+    var tabela = document.getElementById("tbtitulos");
+    var linhas = tabela.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
 
-function alTitulo(valor, dataInicio, dataVencimento, taxaJuros, bloqueio) {
-  titulos.rows[index].cells[1].innerHTML = valor;
-  titulos.rows[index].cells[2].innerHTML = dataInicioFormatada;
-  titulos.rows[index].cells[3].innerHTML = dataVencimentoFormatada;
-  titulos.rows[index].cells[4].innerHTML = taxaJuros;
-  titulos.rows[index].cells[5].innerHTML = bloqueio;
+    for (var i = 0; i < linhas.length; i++) {
+      var linhaCodigo = linhas[i].cells[0].innerText;
 
-  var difDias = calcularDiferenca(dataInicio, dataVencimento);
-  var juros = calcularJuros(valor, taxaJuros, difDias) / 100;
-  var valorTotal = parseFloat(valor.replace(",", ".")) - parseFloat(juros);
+      if (linhaCodigo === codigo) {
+        var valor = parseFloat(document.getElementById("valor").value).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        var dataInicio = new Date(document.getElementById("dataInicio").value).toLocaleDateString('pt-BR');
+        var dataVencimento = new Date(document.getElementById("dataVencimento").value).toLocaleDateString('pt-BR');
 
-  titulos.rows[index].cells[6].innerHTML = difDias;
-  titulos.rows[index].cells[7].innerHTML = juros.toFixed(2);
-  titulos.rows[index].cells[8].innerHTML = valorTotal.toFixed(2);
+        linhas[i].cells[1].innerText = valor;
+        linhas[i].cells[2].innerText = dataInicio;
+        linhas[i].cells[3].innerText = dataVencimento;
+        linhas[i].cells[4].innerText = document.getElementById("taxaJuros").value;
+        linhas[i].cells[5].innerText = document.getElementById("bloqueio").value;
+        break;
+      }
+    }
+
+    atualizarTotais();
+    limparFormulario();
+  }
+*/
+
+
+function alTitulo() {
+  var codigo = document.getElementById("txtCodigo").value;
+  var tabela = document.getElementById("tbtitulos");
+  var linhas = tabela.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+
+  for (var i = 0; i < linhas.length; i++) {
+    var linhaCodigo = linhas[i].cells[0].innerText;
+
+    if (linhaCodigo === codigo) {
+      var dataInicio = new Date(document.getElementById("dataInicio").value).toLocaleDateString('pt-BR');
+      var dataVencimento = new Date(document.getElementById("dataVencimento").value).toLocaleDateString('pt-BR');
+      //var valor = parseFloat(document.getElementById("valor").value).toFixed(2);
+
+      linhas[i].cells[1].innerText = "R$ " + valor.value;
+      linhas[i].cells[2].innerText = dataInicio;
+      linhas[i].cells[3].innerText = dataVencimento;
+      linhas[i].cells[4].innerText = document.getElementById("taxaJuros").value;
+      linhas[i].cells[5].innerText = document.getElementById("bloqueio").value;
+      break;
+    }
+  }
 
   atualizarTotais();
+  limparFormulario();
 }
-
 
 function delRegistro() {
   var codigo = document.getElementById("txtCodigo").value;
@@ -73,7 +108,7 @@ function delRegistro() {
       break;
     }
   }
-
+  limparFormulario();
   atualizarTotais();
 }
 
